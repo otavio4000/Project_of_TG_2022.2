@@ -238,7 +238,7 @@ Argumentos do programa:\n\
     }
   }
   if(!(*start)){
-    printf("Nenhum vertice inicial definido, assumiremos i = 1\n");
+    // printf("Nenhum vertice inicial definido, assumiremos i = 1\n");
     *start = 1;
   }
   return 1;

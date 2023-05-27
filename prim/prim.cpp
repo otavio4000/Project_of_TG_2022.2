@@ -77,10 +77,10 @@ int main(int argv, char** argc){
                 int t=0;
                 for (int l=0; l<n; ++l){
                     t+=cost_weight[l];
-                    std::cout << "|" << cost_weight[l]<<"|"<<previews[l]<<"|";
-                    std::cout<<"\n";
+                    std::cout << "(" << cost_weight[l]<<","<<previews[l]<<") ";
+                    // std::cout<<"\n";
                 }
-                std::cout<<"TOTAL: "<<t<<"\n";
+                std::cout<<"\n";
             }
             else if (order==1){
                 // std::cout<<"ERROR 1\n";
@@ -92,11 +92,11 @@ int main(int argv, char** argc){
                     res.push({-cost_weight[l],previews[l]});
                 }
                 for (int k=0; k<n; ++k){
-                    std::cout << "|" << -res.top().first<<"|"<<res.top().second<<"|";
-                    std::cout<<"\n";
+                    std::cout << "(" << -res.top().first<<","<<res.top().second<<") ";
+                    // std::cout<<"\n";
                     res.pop();
                 }
-                std::cout<<"TOTAL: "<<t<<"\n";
+                std::cout<<"\n";
             }
 
             for (int index_arg4=0; index_arg4<argv; index_arg4++){
@@ -112,9 +112,9 @@ int main(int argv, char** argc){
                         int t=0;
                         for (int l=0; l<n; ++l){
                             t+=cost_weight[l];
-                            fprintf(savefile, "|%d|%d|\n", cost_weight[l], previews[l]);
+                            fprintf(savefile, "(%d,%d) ", cost_weight[l], previews[l]);
                         }
-                        fprintf(savefile, "TOTAL: %d\n", t);
+                        fprintf(savefile, "\n");
                     }
                     else if (order==1){
                         // std::cout<<"ERROR 1\n";
@@ -126,10 +126,10 @@ int main(int argv, char** argc){
                             res.push({-cost_weight[l],previews[l]});
                         }
                         for (int k=0; k<n; ++k){
-                            fprintf(savefile, "|%d|%d|\n", -res.top().first, res.top().second);
+                            fprintf(savefile, "(%d,%d) ", -res.top().first, res.top().second);
                             res.pop();
                         }
-                        fprintf(savefile, "TOTAL: %d\n", t);
+                        fprintf(savefile, "\n");
                     }
                     fclose(savefile);
                 }
