@@ -77,10 +77,10 @@ int main(int argv, char** argc){
                 int t=0;
                 for (int l=0; l<n; ++l){
                     t+=cost_weight[l];
-                    std::cout << "(" << cost_weight[l]<<","<<previews[l]<<") ";
+                    // std::cout << "(" << previews[l]<<","<<cost_weight[l]<<") ";
                     // std::cout<<"\n";
                 }
-                std::cout<<"\n";
+                std::cout<<t<<"\n";
             }
             else if (order==1){
                 // std::cout<<"ERROR 1\n";
@@ -92,7 +92,7 @@ int main(int argv, char** argc){
                     res.push({-cost_weight[l],previews[l]});
                 }
                 for (int k=0; k<n; ++k){
-                    std::cout << "(" << -res.top().first<<","<<res.top().second<<") ";
+                    std::cout << "(" << res.top().second<<","<<-res.top().first<<") ";
                     // std::cout<<"\n";
                     res.pop();
                 }
@@ -112,7 +112,7 @@ int main(int argv, char** argc){
                         int t=0;
                         for (int l=0; l<n; ++l){
                             t+=cost_weight[l];
-                            fprintf(savefile, "(%d,%d) ", cost_weight[l], previews[l]);
+                            fprintf(savefile, "(%d,%d) ", previews[l], cost_weight[l]);
                         }
                         fprintf(savefile, "\n");
                     }
@@ -126,7 +126,7 @@ int main(int argv, char** argc){
                             res.push({-cost_weight[l],previews[l]});
                         }
                         for (int k=0; k<n; ++k){
-                            fprintf(savefile, "(%d,%d) ", -res.top().first, res.top().second);
+                            fprintf(savefile, "(%d,%d) ", res.top().second, -res.top().first);
                             res.pop();
                         }
                         fprintf(savefile, "\n");

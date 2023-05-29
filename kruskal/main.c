@@ -210,19 +210,14 @@ int main(int argc, char *argv[]) {
       while(++i < g->n - 1){
         printf("(%d,%d) ", arestas[i][0] + 1, arestas[i][1] + 1);
       }
-      // printf(" ]\n");
+      printf("\n");
     }
   }else{
-    while(++i < g->n - 1){
-      printf("(%d,%d) ", arestas[i][0] + 1, arestas[i][1] + 1);
-      fprintf(outFile, "(%d,%d) ", arestas[i][0] + 1, arestas[i][1] + 1);
-    }
-    printf("\n");
     if(outFile != NULL){
-      fprintf(outFile, "\n");
+      fprintf(outFile, "%d\n", tot);
       fclose(outFile);
     }else{
-      printf("\n");
+      printf("%d\n", tot);
     }
   }
   freeGRAFO(g);
